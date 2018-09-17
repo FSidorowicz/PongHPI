@@ -1,5 +1,10 @@
 package pl.fsidorowicz.ponghpi.controller;
 
+
+
 public interface Controller {
-	void handleEvent();
+
+	void keyPressed(int keyCode);
+
+    void resetVel();
 }
