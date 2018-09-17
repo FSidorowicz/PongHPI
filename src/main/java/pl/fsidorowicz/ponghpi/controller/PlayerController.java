@@ -16,16 +16,19 @@ public class PlayerController implements Controller{
     }
 
 
-
+    //Controlling the player.
     @Override
     public void keyPressed(int keyCode) {
         switch (keyCode) {
             case KeyEvent.VK_RIGHT:
-                if (player.getXPos() < 599) {
+                if (player.getXPos() < 299) {
                     double result = player.getXPos() + 20 * player.getXVel();
                     player.appendXVel();
                     player.setXPos(result);
                 }
+                else if (player.getXPos() > 300) {
+                    player.resetXVel();
+                    player.setXPos(300);}
                 break;
             case KeyEvent.VK_LEFT:
                 if (player.getXPos() > 1) {
@@ -33,6 +36,9 @@ public class PlayerController implements Controller{
                     player.appendXVel();
                     player.setXPos(result2);
                 }
+                else if (player.getXPos() <= 0){
+                    player.resetXVel();
+                    player.setXPos(0);}
                 break;
 
 

@@ -5,9 +5,9 @@ import pl.fsidorowicz.ponghpi.view.AbstractView;
 public class PlayerModel {
 
 
-    private int xSize = 200;
-    private int ySize = 40;
-    private int xPos = 300;
+    private int xSize = 100;
+    private int ySize = 20;
+    private int xPos = 150;
     private int yPos;
     private double xVel = 1;
 
@@ -24,7 +24,7 @@ public class PlayerModel {
     }
     public void setXPos(double xPos) {
         if (this.xPos < 0) { this.xPos = 0;}
-        else if (this.xPos > 600) { this.xPos = 600;}
+        else if (this.xPos > 300) { this.xPos = 300;}
         else
             this.xPos = (int)xPos;
     }
@@ -45,7 +45,7 @@ public class PlayerModel {
     }
 
     private void setYPos() {
-        this.yPos = 740;
+        this.yPos = 360;
     }
 
     public int getXPos() {

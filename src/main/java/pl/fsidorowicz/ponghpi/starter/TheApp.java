@@ -17,7 +17,7 @@ public class TheApp extends PApplet {
 
 	@Override
 	public void settings() {
-        size(800, 800);
+        size(400, 400);
 	}
 
 	@Override
@@ -32,6 +32,8 @@ public class TheApp extends PApplet {
 
 	@Override
 	public void draw() {  // draw() loops forever, until stopped
+		ball.move();
+		gameView.update();
 	}
 	
 	//Add further user interaction as necessary
