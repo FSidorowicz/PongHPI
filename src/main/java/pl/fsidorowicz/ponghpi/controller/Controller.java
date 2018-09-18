@@ -6,5 +6,4 @@ public interface Controller {
 
 	void keyPressed(int keyCode);
 
-    void resetVel();
 }

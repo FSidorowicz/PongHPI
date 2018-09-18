@@ -45,7 +45,7 @@ public class PlayerController implements Controller{
         }
     }
 
-    @Override
+
     public void resetVel() {
         player.resetXVel();
     }
