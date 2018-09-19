@@ -15,7 +15,7 @@ public class GameView extends AbstractView {
         update();
 
     }
-
+    //Updating every frame.
     @Override
     public void update(){
         display.background(204);

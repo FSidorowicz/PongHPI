@@ -1,7 +1,5 @@
 package pl.fsidorowicz.ponghpi.model;
 
-import pl.fsidorowicz.ponghpi.view.AbstractView;
-
 public class PlayerModel {
 
 

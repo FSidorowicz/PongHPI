@@ -5,7 +5,7 @@ public class BallModel {
 
     private int size = 20;
     private int xPos = 200;
-    private int yPos = 200;
+    private int yPos = 100;
     private int xVel = getRandomSPeed() * getRandomDirection();
     private int yVel = getRandomSPeed() * getRandomDirection();
     private boolean gameOver = false;
@@ -20,10 +20,10 @@ public class BallModel {
         if (bounce)
             this.yVel = -1 * this.yVel;
     }
-    public int getRandomSPeed(){
+    private int getRandomSPeed(){
         return (int)(Math.random()*3 + 2);
     }
-    public int getRandomDirection(){
+    private int getRandomDirection(){
         int random = (int)(Math.random() *2);
         if (random == 0 )
             return 1;

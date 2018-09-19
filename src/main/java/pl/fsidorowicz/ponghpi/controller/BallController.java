@@ -15,6 +15,7 @@ public class BallController {
         this.ball = ball;
     }
 
+    //Moving a ball and GAMEOVER when under the player.
     public void move() {
         if ((ball.getXPos() <= 10) || (ball.getXPos() >= 390))
             ball.setXVel(true);
@@ -31,9 +32,6 @@ public class BallController {
 
 
         if (!ball.getGameOver()) {
-           // ball.setYPos(200);
-            //ball.setXPos(200);
-        //} else {
             ball.setXPos(ball.getXPos() + ball.getXVel());
             ball.setYPos(ball.getYPos() + ball.getYVel());
         }

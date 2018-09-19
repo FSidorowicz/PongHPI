@@ -35,13 +35,14 @@ public class TheApp extends PApplet {
         gameView = new GameView(this, player, ball);
 
     }
-
+    //Drawing every frame.
     @Override
     public void draw() {  // draw() loops forever, until stopped
         if (gameStarted) {
             if (!ball.getGameOver()) {
                 moveBall();
                 gameView.update();
+                playerController.move();
             } else {
                 showMessageDialog(null, "GameOver", "You lost!", INFORMATION_MESSAGE);
                 System.exit(0);
@@ -53,18 +54,19 @@ public class TheApp extends PApplet {
         }
     }
 
-    //Add further user interaction as necessary
-    //@Override
+
+    //Key listener.
     public void keyPressed() {
         playerController.keyPressed(keyCode);
         gameView.update();
     }
-
+    //Actions after key released - stop the player.
     public void keyReleased() {
         playerController.resetVel();
+        playerController.resetTimer();
 
     }
-
+    //Moving a ball. Method is called in draw method of this class.
     public void moveBall() {
         ballController.move();
     }

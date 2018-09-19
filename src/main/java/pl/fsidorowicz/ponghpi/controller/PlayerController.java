@@ -6,14 +6,14 @@ import java.awt.event.KeyEvent;
 
 public class PlayerController implements Controller{
 
-    PlayerModel player;
-    BallModel ball;
-    boolean timer;
+    private PlayerModel player;
+
+    //Timers are used for controlling the player - to eliminate holding key delay.
+    private boolean timerRight;
+    private boolean timerLeft;
 
     public PlayerController(PlayerModel player, BallModel ball){
-
         this.player = player;
-        this.ball = ball;
     }
 
 
@@ -23,9 +23,7 @@ public class PlayerController implements Controller{
         switch (keyCode) {
             case KeyEvent.VK_RIGHT:
                 if (player.getXPos() < 299) {
-                    double result = player.getXPos() + 20 * player.getXVel();
-                    player.appendXVel();
-                    player.setXPos(result);
+                    this.timerRight = true;
                 }
                 else if (player.getXPos() > 300) {
                     player.resetXVel();
@@ -33,9 +31,8 @@ public class PlayerController implements Controller{
                 break;
             case KeyEvent.VK_LEFT:
                 if (player.getXPos() > 1) {
-                    double result2 = player.getXPos() - 20 * player.getXVel();
-                    player.appendXVel();
-                    player.setXPos(result2);
+                    this.timerLeft = true;
+
                 }
                 else if (player.getXPos() <= 0){
                     player.resetXVel();
@@ -46,7 +43,25 @@ public class PlayerController implements Controller{
         }
     }
 
+    // Moving the player
+    public void move(){
+        if (timerRight){
+            double result = player.getXPos() + 10 * player.getXVel();
+            player.appendXVel();
+            player.setXPos(result);
+        }
+        else if (timerLeft){
+            double result2 = player.getXPos() - 10 * player.getXVel();
+            player.appendXVel();
+            player.setXPos(result2);
+        }
+    }
 
+    //Stop the player after key release.
+    public void resetTimer(){
+        this.timerRight = false;
+        this.timerLeft = false;
+    }
     public void resetVel() {
         player.resetXVel();
     }
