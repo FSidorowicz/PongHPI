@@ -8,6 +8,7 @@ public class PlayerController implements Controller{
 
     PlayerModel player;
     BallModel ball;
+    boolean timer;
 
     public PlayerController(PlayerModel player, BallModel ball){
 
