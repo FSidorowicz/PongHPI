@@ -9,7 +9,6 @@ import pl.fsidorowicz.ponghpi.model.PlayerModel;
 import pl.fsidorowicz.ponghpi.view.GameView;
 import processing.core.PApplet;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static javax.swing.JOptionPane.*;
@@ -46,7 +45,7 @@ public class TheApp extends PApplet {
     @Override
     public void draw() {  // draw() loops forever, until stopped
         if (gameStarted) {
-            if (!ball.getGameOver()) {
+            if (!ball.isGameOver()) {
                 moveBall();
                 gameView.update();
                 playerController.move();

@@ -15,35 +15,35 @@ public class Brick {
         this.hit = false;
     }
 
-    public int getxSize() {
+    public int getXSize() {
         return xSize;
     }
 
-    public void setxSize(int xSize) {
+    public void setXSize(int xSize) {
         this.xSize = xSize;
     }
 
-    public int getySize() {
+    public int getYSize() {
         return ySize;
     }
 
-    public void setySize(int ySize) {
+    public void setYSize(int ySize) {
         this.ySize = ySize;
     }
 
-    public int getxPos() {
+    public int getXPos() {
         return xPos;
     }
 
-    public void setxPos(int xPos) {
+    public void setXPos(int xPos) {
         this.xPos = xPos;
     }
 
-    public int getyPos() {
+    public int getYPos() {
         return yPos;
     }
 
-    public void setyPos(int yPos) {
+    public void setYPos(int yPos) {
         this.yPos = yPos;
     }
 
@@ -53,16 +53,5 @@ public class Brick {
 
     public void setHit(boolean hit) {
         this.hit = hit;
-    }
-
-    @Override
-    public String toString() {
-        return "Brick{" +
-                "xSize=" + xSize +
-                ", ySize=" + ySize +
-                ", xPos=" + xPos +
-                ", yPos=" + yPos +
-                ", hit=" + hit +
-                '}';
     }
 }

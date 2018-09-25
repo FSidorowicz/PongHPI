@@ -29,7 +29,7 @@ public class BallModel {
     }
 
     private int getRandomDirection() {
-        int random = (int) (Math.random() * 2);
+        int random = (int) (Math.random() * 3);
         if (random == 0)
             return 1;
         else
@@ -53,22 +53,22 @@ public class BallModel {
     }
 
     public int getSize() {
-        return this.size;
+        return size;
     }
 
     public int getXPos() {
-        return this.xPos;
+        return xPos;
     }
 
     public int getYPos() {
-        return this.yPos;
+        return yPos;
     }
 
     public void gameOver() {
-        this.gameOver = true;
+        gameOver = true;
     }
 
-    public boolean getGameOver() {
-        return this.gameOver;
+    public boolean isGameOver() {
+        return gameOver;
     }
 }

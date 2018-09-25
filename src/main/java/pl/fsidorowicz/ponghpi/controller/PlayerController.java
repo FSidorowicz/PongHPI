@@ -4,7 +4,7 @@ import pl.fsidorowicz.ponghpi.model.BallModel;
 import pl.fsidorowicz.ponghpi.model.PlayerModel;
 import java.awt.event.KeyEvent;
 
-public class PlayerController implements Controller{
+public class PlayerController{
 
     private PlayerModel player;
 
@@ -18,7 +18,6 @@ public class PlayerController implements Controller{
 
 
     //Controlling the player.
-    @Override
     public void keyPressed(int keyCode) {
         switch (keyCode) {
             case KeyEvent.VK_RIGHT:

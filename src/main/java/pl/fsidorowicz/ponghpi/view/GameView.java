@@ -30,7 +30,7 @@ public class GameView extends AbstractView {
         display.fill(90, 0, 218);
         for(Brick brick : bricks)
             if(!brick.isHit())
-                display.rect(brick.getxPos(), brick.getyPos(), brick.getxSize(), brick.getySize());
+                display.rect(brick.getXPos(), brick.getYPos(), brick.getXSize(), brick.getYSize());
         display.redraw();
     }
 }

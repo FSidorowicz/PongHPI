@@ -4,7 +4,6 @@ import pl.fsidorowicz.ponghpi.model.BallModel;
 import pl.fsidorowicz.ponghpi.model.Brick;
 import pl.fsidorowicz.ponghpi.model.PlayerModel;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class BallController {
@@ -24,7 +23,7 @@ public class BallController {
     //Moving a ball and GAMEOVER when under the player.
     public void move() {
         for(Brick brick : bricks){
-            if((ball.getYPos() <= (brick.getyPos() + 15) && ((ball.getXPos() >= brick.getxPos()) &&(ball.getXPos() <= brick.getxPos() + 40)) && !brick.isHit())){
+            if((ball.getYPos() <= (brick.getYPos() + 15) && ((ball.getXPos() >= brick.getXPos()) &&(ball.getXPos() <= brick.getXPos() + 40)) && !brick.isHit())){
                 brick.setHit(true);
                 ball.setYVel(ball.getYVel() * -1);
                 score++;
@@ -40,17 +39,9 @@ public class BallController {
             ball.gameOver();
         if(score == bricks.size())
             ball.gameOver();
-        if (!ball.getGameOver()) {
+        if (!ball.isGameOver()) {
             ball.setXPos(ball.getXPos() + ball.getXVel());
             ball.setYPos(ball.getYPos() + ball.getYVel());
         }
-    }
-
-    private double setYVelocity(int playerXPosition, int ballXPosition){
-        System.out.println("ball: " + ballXPosition + ",player: " + playerXPosition);
-        int positionOnPlayer = ballXPosition - playerXPosition;
-        int degrees = (positionOnPlayer * 180)/100;
-        double radians = Math.toRadians(degrees);
-        return Math.sin(radians);
     }
 }
