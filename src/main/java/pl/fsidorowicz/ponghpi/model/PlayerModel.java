@@ -3,15 +3,18 @@ package pl.fsidorowicz.ponghpi.model;
 public class PlayerModel {
 
 
-    private int xSize = 100;
-    private int ySize = 20;
-    private int xPos = 150;
+    private int xSize;
+    private int ySize;
+    private int xPos;
     private int yPos;
-    private double xVel = 1;
+    private int xVel;
 
     public PlayerModel(){
-        this.setYPos();
-
+        xSize = 100;
+        ySize = 20;
+        xPos = 150;
+        yPos = 360;
+        xVel = 1;
     }
 
     public int getXSize() {
@@ -20,30 +23,26 @@ public class PlayerModel {
     public int getYSize() {
         return this.ySize;
     }
-    public void setXPos(double xPos) {
+
+    public void setXPos(int xPos) {
         if (this.xPos < 0) { this.xPos = 0;}
         else if (this.xPos > 300) { this.xPos = 300;}
         else
-            this.xPos = (int)xPos;
+            this.xPos = xPos;
     }
 
     public void appendXVel(){
         if (this.xVel < 5)
-        this.xVel = this.xVel * 1.05;
+            this.xVel *= 1.05;
         else this.xVel = 5;
     }
-
 
     public void resetXVel() {
         this.xVel = 1;
     }
 
-    public double getXVel(){
+    public int getXVel(){
         return this.xVel;
-    }
-
-    private void setYPos() {
-        this.yPos = 360;
     }
 
     public int getXPos() {

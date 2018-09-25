@@ -32,26 +32,23 @@ public class PlayerController implements Controller{
             case KeyEvent.VK_LEFT:
                 if (player.getXPos() > 1) {
                     this.timerLeft = true;
-
                 }
                 else if (player.getXPos() <= 0){
                     player.resetXVel();
                     player.setXPos(0);}
                 break;
-
-
         }
     }
 
     // Moving the player
     public void move(){
         if (timerRight){
-            double result = player.getXPos() + 10 * player.getXVel();
+            int result = player.getXPos() + 10 * player.getXVel();
             player.appendXVel();
             player.setXPos(result);
         }
         else if (timerLeft){
-            double result2 = player.getXPos() - 10 * player.getXVel();
+            int result2 = player.getXPos() - 10 * player.getXVel();
             player.appendXVel();
             player.setXPos(result2);
         }
@@ -65,6 +62,4 @@ public class PlayerController implements Controller{
     public void resetVel() {
         player.resetXVel();
     }
-
-
 }

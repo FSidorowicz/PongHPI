@@ -1,12 +1,16 @@
 package pl.fsidorowicz.ponghpi.starter;
 
 import pl.fsidorowicz.ponghpi.controller.BallController;
+import pl.fsidorowicz.ponghpi.controller.BrickController;
 import pl.fsidorowicz.ponghpi.controller.PlayerController;
 import pl.fsidorowicz.ponghpi.model.BallModel;
+import pl.fsidorowicz.ponghpi.model.Brick;
 import pl.fsidorowicz.ponghpi.model.PlayerModel;
 import pl.fsidorowicz.ponghpi.view.GameView;
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.swing.JOptionPane.*;
 
@@ -15,8 +19,9 @@ public class TheApp extends PApplet {
 
     private PlayerController playerController;
     private GameView gameView;
-    BallModel ball;
-    BallController ballController;
+    private BallModel ball;
+    private BallController ballController;
+    List<Brick> bricks;
     boolean gameStarted;
 
     @Override
@@ -30,11 +35,13 @@ public class TheApp extends PApplet {
         frameRate(30);
         PlayerModel player = new PlayerModel();
         ball = new BallModel();
+        bricks = new BrickController().getBricks();
         playerController = new PlayerController(player, ball);
-        ballController = new BallController(player, ball);
-        gameView = new GameView(this, player, ball);
+        ballController = new BallController(player, ball, bricks);
+        gameView = new GameView(this, player, ball, bricks);
 
     }
+
     //Drawing every frame.
     @Override
     public void draw() {  // draw() loops forever, until stopped
@@ -44,8 +51,12 @@ public class TheApp extends PApplet {
                 gameView.update();
                 playerController.move();
             } else {
-                showMessageDialog(null, "GameOver", "You lost!", INFORMATION_MESSAGE);
-                System.exit(0);
+                int i = showConfirmDialog(null, "Game over! \nWould you like to play again?", "Choose One", YES_NO_OPTION);
+                if (i == 0){
+                    setup();
+                }
+                else
+                    System.exit(0);
             }
         }
         else {
@@ -53,7 +64,6 @@ public class TheApp extends PApplet {
             gameStarted = true;
         }
     }
-
 
     //Key listener.
     public void keyPressed() {
@@ -67,7 +77,7 @@ public class TheApp extends PApplet {
 
     }
     //Moving a ball. Method is called in draw method of this class.
-    public void moveBall() {
+    private void moveBall() {
         ballController.move();
     }
 }

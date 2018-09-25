@@ -6,30 +6,36 @@ public class BallModel {
     private int size = 20;
     private int xPos = 200;
     private int yPos = 100;
-    private int xVel = getRandomSPeed() * getRandomDirection();
-    private int yVel = getRandomSPeed() * getRandomDirection();
+    private int xVel;
+    private int yVel;
     private boolean gameOver = false;
 
-
-    public void setXVel(boolean bounce) {
-        if (bounce)
-            this.xVel = -1 * this.xVel;
+    public BallModel(){
+        xVel = getRandomSPeed() * getRandomDirection();
+        yVel = getRandomSPeed() * getRandomDirection();
     }
 
-    public void setYVel(boolean bounce) {
-        if (bounce)
-            this.yVel = -1 * this.yVel;
+
+    public void setXVel(int xVel) {
+        this.xVel = xVel;
     }
-    private int getRandomSPeed(){
-        return (int)(Math.random()*3 + 2);
+
+    public void setYVel(int yVel) {
+        this.yVel = yVel;
     }
-    private int getRandomDirection(){
-        int random = (int)(Math.random() *2);
-        if (random == 0 )
+
+    private int getRandomSPeed() {
+        return (int) (Math.random() * 3 + 2);
+    }
+
+    private int getRandomDirection() {
+        int random = (int) (Math.random() * 2);
+        if (random == 0)
             return 1;
         else
-            return -1;
+            return random;
     }
+
     public int getXVel() {
         return this.xVel;
     }
@@ -58,11 +64,11 @@ public class BallModel {
         return this.yPos;
     }
 
-    public void gameOver(){
+    public void gameOver() {
         this.gameOver = true;
     }
 
-    public boolean getGameOver(){
+    public boolean getGameOver() {
         return this.gameOver;
     }
 }
